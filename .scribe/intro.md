@@ -1,13 +1,16 @@
 # Introduction
 
-REST API for a CRM application built with Laravel 12 and Sanctum. All endpoints (except auth) require a Bearer token.
+REST API for a CRM application built with **Laravel 12** and **Laravel Sanctum**. Manage clients, contacts, notes, and activities — all data is ownership-scoped to the authenticated user.
 
 <aside>
-    <strong>Base URL</strong>: <code>http://localhost</code>
+    <strong>Base URL</strong>: <code>http://localhost:8000</code>
 </aside>
 
-    This documentation aims to provide all the information you need to work with our API.
+All endpoints except `POST /auth/register` and `POST /auth/login` require a Bearer token. Include it in every request as:
 
-    <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
-    You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+```
+Authorization: Bearer {your_token}
+```
+
+You obtain a token by calling `POST /auth/login` with your credentials.
 
