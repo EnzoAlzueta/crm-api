@@ -1,0 +1,474 @@
+name: Clients
+description: |-
+
+  Manage CRM clients. All clients are scoped to the authenticated user.
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/clients/{client}/restore'
+    metadata:
+      custom: []
+      groupName: Clients
+      groupDescription: |-
+
+        Manage CRM clients. All clients are scoped to the authenticated user.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Restore a soft-deleted client.'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      client:
+        custom: []
+        name: client
+        description: 'The client.'
+        required: true
+        example: 3
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      client: 3
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"data":{"id":1,"name":"Acme Corp","email":"info@acme.test","phone":null,"company":"Acme Corp","status":"active","created_at":"2026-04-13T00:00:00.000000Z","updated_at":"2026-04-13T00:00:00.000000Z"}}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 403
+        content: '{"message":"This action is unauthorized."}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 404
+        content: '{"message":"No query results for model [App\\Models\\Client]"}'
+        headers: []
+        description: ''
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/clients
+    metadata:
+      custom: []
+      groupName: Clients
+      groupDescription: |-
+
+        Manage CRM clients. All clients are scoped to the authenticated user.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List clients.'
+      description: "Returns a paginated list of the authenticated user's clients."
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      page:
+        custom: []
+        name: page
+        description: 'Page number.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      page: 1
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"data":[{"id":1,"name":"Acme Corp","email":"info@acme.test","phone":null,"company":"Acme Corp","status":"active","created_at":"2026-04-13T00:00:00.000000Z","updated_at":"2026-04-13T00:00:00.000000Z"}],"links":{...},"meta":{...}}'
+        headers: []
+        description: ''
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/clients
+    metadata:
+      custom: []
+      groupName: Clients
+      groupDescription: |-
+
+        Manage CRM clients. All clients are scoped to the authenticated user.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create a client.'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: ''
+        required: true
+        example: 'Acme Corp'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      email:
+        custom: []
+        name: email
+        description: ''
+        required: false
+        example: info@acme.test
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      phone:
+        custom: []
+        name: phone
+        description: ''
+        required: false
+        example: +1-555-0100
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      company:
+        custom: []
+        name: company
+        description: ''
+        required: false
+        example: 'Acme Corp'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: 'One of: lead, active, inactive, churned.'
+        required: false
+        example: lead
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      name: 'Acme Corp'
+      email: info@acme.test
+      phone: +1-555-0100
+      company: 'Acme Corp'
+      status: lead
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: '{"data":{"id":1,"name":"Acme Corp","email":"info@acme.test","phone":null,"company":"Acme Corp","status":"lead","created_at":"2026-04-13T00:00:00.000000Z","updated_at":"2026-04-13T00:00:00.000000Z"}}'
+        headers: []
+        description: ''
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/clients/{id}'
+    metadata:
+      custom: []
+      groupName: Clients
+      groupDescription: |-
+
+        Manage CRM clients. All clients are scoped to the authenticated user.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get a client.'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the client.'
+        required: true
+        example: 3
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 3
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"data":{"id":1,"name":"Acme Corp","email":"info@acme.test","phone":null,"company":"Acme Corp","status":"active","created_at":"2026-04-13T00:00:00.000000Z","updated_at":"2026-04-13T00:00:00.000000Z"}}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 403
+        content: '{"message":"This action is unauthorized."}'
+        headers: []
+        description: ''
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/clients/{id}'
+    metadata:
+      custom: []
+      groupName: Clients
+      groupDescription: |-
+
+        Manage CRM clients. All clients are scoped to the authenticated user.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update a client.'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the client.'
+        required: true
+        example: 3
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 3
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: ''
+        required: false
+        example: 'Acme Corp Updated'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      email:
+        custom: []
+        name: email
+        description: ''
+        required: false
+        example: new@acme.test
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      phone:
+        custom: []
+        name: phone
+        description: ''
+        required: false
+        example: +1-555-0199
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      company:
+        custom: []
+        name: company
+        description: ''
+        required: false
+        example: 'Acme Corp'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: 'One of: lead, active, inactive, churned.'
+        required: false
+        example: active
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      name: 'Acme Corp Updated'
+      email: new@acme.test
+      phone: +1-555-0199
+      company: 'Acme Corp'
+      status: active
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"data":{"id":1,"name":"Acme Corp Updated","email":"new@acme.test","phone":null,"company":"Acme Corp","status":"active","created_at":"2026-04-13T00:00:00.000000Z","updated_at":"2026-04-13T00:00:00.000000Z"}}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 403
+        content: '{"message":"This action is unauthorized."}'
+        headers: []
+        description: ''
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/clients/{id}'
+    metadata:
+      custom: []
+      groupName: Clients
+      groupDescription: |-
+
+        Manage CRM clients. All clients are scoped to the authenticated user.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete a client (soft delete).'
+      description: 'The client is soft-deleted and can be restored via POST /clients/{id}/restore.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the client.'
+        required: true
+        example: 3
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 3
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"message":"Client deleted"}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 403
+        content: '{"message":"This action is unauthorized."}'
+        headers: []
+        description: ''
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null

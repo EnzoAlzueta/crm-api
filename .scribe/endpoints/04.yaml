@@ -1,0 +1,547 @@
+name: Activities
+description: |-
+
+  Activities (calls, emails, meetings, tasks) belong to a Client and optionally to a Contact.
+  Create via POST /clients/{client}/activities; read/update/delete via flat routes.
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/clients/{client_id}/activities'
+    metadata:
+      custom: []
+      groupName: Activities
+      groupDescription: |-
+
+        Activities (calls, emails, meetings, tasks) belong to a Client and optionally to a Contact.
+        Create via POST /clients/{client}/activities; read/update/delete via flat routes.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List activities for a client.'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      client_id:
+        custom: []
+        name: client_id
+        description: 'The ID of the client.'
+        required: true
+        example: 3
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      client:
+        custom: []
+        name: client
+        description: 'The client ID.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      client_id: 3
+      client: 1
+    queryParameters:
+      page:
+        custom: []
+        name: page
+        description: 'Page number.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      page: 1
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/clients/{client_id}/activities'
+    metadata:
+      custom: []
+      groupName: Activities
+      groupDescription: |-
+
+        Activities (calls, emails, meetings, tasks) belong to a Client and optionally to a Contact.
+        Create via POST /clients/{client}/activities; read/update/delete via flat routes.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create an activity.'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      client_id:
+        custom: []
+        name: client_id
+        description: 'The ID of the client.'
+        required: true
+        example: 3
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      client:
+        custom: []
+        name: client
+        description: 'The client ID.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      client_id: 3
+      client: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      type:
+        custom: []
+        name: type
+        description: 'Defaults to "task". One of: call, email, meeting, task.'
+        required: false
+        example: call
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      title:
+        custom: []
+        name: title
+        description: ''
+        required: true
+        example: 'Follow-up call'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      body:
+        custom: []
+        name: body
+        description: ''
+        required: false
+        example: 'Discuss renewal options.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      due_at:
+        custom: []
+        name: due_at
+        description: Date/time.
+        required: false
+        example: '2026-05-01 10:00:00'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      completed_at:
+        custom: []
+        name: completed_at
+        description: 'Date/time. Leave null if not yet completed.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      contact_id:
+        custom: []
+        name: contact_id
+        description: 'optional ID of a contact belonging to this client.'
+        required: false
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      type: call
+      title: 'Follow-up call'
+      body: 'Discuss renewal options.'
+      due_at: '2026-05-01 10:00:00'
+      completed_at: null
+      contact_id: 2
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: '{"data":{"id":1,"client_id":1,"contact_id":null,"type":"call","title":"Follow-up call","body":"Discuss renewal options.","due_at":"2026-05-01T10:00:00.000000Z","completed_at":null,"created_at":"2026-04-13T00:00:00.000000Z","updated_at":"2026-04-13T00:00:00.000000Z"}}'
+        headers: []
+        description: ''
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/activities
+    metadata:
+      custom: []
+      groupName: Activities
+      groupDescription: |-
+
+        Activities (calls, emails, meetings, tasks) belong to a Client and optionally to a Contact.
+        Create via POST /clients/{client}/activities; read/update/delete via flat routes.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List all activities.'
+      description: 'Returns all activities across all clients of the authenticated user, paginated.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      page:
+        custom: []
+        name: page
+        description: 'Page number.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      page: 1
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/activities/{id}'
+    metadata:
+      custom: []
+      groupName: Activities
+      groupDescription: |-
+
+        Activities (calls, emails, meetings, tasks) belong to a Client and optionally to a Contact.
+        Create via POST /clients/{client}/activities; read/update/delete via flat routes.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get an activity.'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the activity.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 16
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"data":{"id":1,"client_id":1,"contact_id":null,"type":"call","title":"Follow-up call","body":null,"due_at":null,"completed_at":null,"created_at":"2026-04-13T00:00:00.000000Z","updated_at":"2026-04-13T00:00:00.000000Z"}}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 403
+        content: '{"message":"This action is unauthorized."}'
+        headers: []
+        description: ''
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/activities/{id}'
+    metadata:
+      custom: []
+      groupName: Activities
+      groupDescription: |-
+
+        Activities (calls, emails, meetings, tasks) belong to a Client and optionally to a Contact.
+        Create via POST /clients/{client}/activities; read/update/delete via flat routes.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update an activity.'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the activity.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 16
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      type:
+        custom: []
+        name: type
+        description: 'One of: call, email, meeting, task.'
+        required: false
+        example: meeting
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      title:
+        custom: []
+        name: title
+        description: ''
+        required: false
+        example: 'Follow-up call (rescheduled)'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      body:
+        custom: []
+        name: body
+        description: ''
+        required: false
+        example: 'Updated notes.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      due_at:
+        custom: []
+        name: due_at
+        description: Date/time.
+        required: false
+        example: '2026-05-10 14:00:00'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      completed_at:
+        custom: []
+        name: completed_at
+        description: 'Date/time to mark as completed.'
+        required: false
+        example: '2026-04-13 09:00:00'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      contact_id:
+        custom: []
+        name: contact_id
+        description: nullable
+        required: false
+        example: 3
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      type: meeting
+      title: 'Follow-up call (rescheduled)'
+      body: 'Updated notes.'
+      due_at: '2026-05-10 14:00:00'
+      completed_at: '2026-04-13 09:00:00'
+      contact_id: 3
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"data":{"id":1,"client_id":1,"contact_id":null,"type":"meeting","title":"Follow-up call (rescheduled)","body":"Updated notes.","due_at":"2026-05-10T14:00:00.000000Z","completed_at":null,"created_at":"2026-04-13T00:00:00.000000Z","updated_at":"2026-04-13T00:00:00.000000Z"}}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 403
+        content: '{"message":"This action is unauthorized."}'
+        headers: []
+        description: ''
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/activities/{id}'
+    metadata:
+      custom: []
+      groupName: Activities
+      groupDescription: |-
+
+        Activities (calls, emails, meetings, tasks) belong to a Client and optionally to a Contact.
+        Create via POST /clients/{client}/activities; read/update/delete via flat routes.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete an activity (soft delete).'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the activity.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 16
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"message":"Activity deleted"}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 403
+        content: '{"message":"This action is unauthorized."}'
+        headers: []
+        description: ''
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
